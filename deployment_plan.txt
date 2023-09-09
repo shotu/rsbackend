@@ -1,0 +1,6 @@
+#update requirements.txt 
+
+python -m pip freeze > osbackend/requirements.tx
+
+
+udpate the .env.example 

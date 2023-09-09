@@ -1,0 +1,67 @@
+celery 
+
+
+  ource venv/bin/activate
+  celery -A rsbackend worker -l info
+  649  celery -A rsbackend.celery worker --loglevel=info
+  650  sudo systemctl stop rabbitmq-server
+  651  sudo systemctl start rabbitmq-server
+  652  celery -A rsbackend.celery worker --loglevel=info
+  653  celery -A rsbackend worker --loglevel=info
+  660  celery -A rsbackend worker --loglevel=info
+  661  cd osbackend/
+  662  celery -A rsbackend worker --loglevel=info
+  663  history
+  664  celery -A rsbackend worker -l info
+  665  celery -A rsbackend.celery_app worker -l info
+  666  celery -A rsbackend worker -l info  # cd to osbackend 
+  667  celery -A rsbackend worker -B  -l info
+  668  history
+(venv) atri@atri-Lenovo-Legion-Y540-15IRH-P
+
+
+super user admin - atr90 admin123 
+
+https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html
+
+
+To run >
+
+in parent directoty /rightsharpe
+ run -> source venv/bin/activate or 
+ pyhon3 -m venv venv and then run ^
+
+ - tun start celery and beat beat
+
+ goto osbackend/
+
+celery -A rsbackend worker -B  -l info
+ run celery -A rsbackend.celery worker --loglevel=info
+
+
+
+ to start api app
+
+ python manage.py runserver
+
+
+ to start admin app 
+
+
+
+
+Adding new task-
+
+add task schedule here - 
+
+
+/home/atri/git/rightsharpe/osbackend/rsbackend/settings/base.py
+
+
+add task code here- 
+
+/home/atri/git/rightsharpe/osbackend/rsbackend/tasks.py
+
+
+
+-

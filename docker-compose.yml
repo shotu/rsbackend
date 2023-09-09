@@ -1,0 +1,42 @@
+version: '2'
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      # POSTGRES_USER:db_user
+      # POSTGRES_PASSWORD:password
+      # POSTGRES_DB:posts
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432" #Check Just not to clash with already running service on system 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    depends_on:
+      - db
+    ports:
+      - 5051:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@pgadmin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    volumes:
+      - pg_admin:/var/lib/pgadmin
+  app:
+    build:
+      context: .
+      args:
+        - dev=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./osbackend:/rsbackend
+    command: > 
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+volumes:
+  postgres_data:
+  pg_admin:
