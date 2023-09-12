@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     # "rsbackend.pos",
     "rsbackend.fivep",
     "django_celery_results",
+    "rsbackend.wsgi",
     
 ]
 
